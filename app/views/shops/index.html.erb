@@ -1,0 +1,39 @@
+<h1>Shops#index</h1>
+<p>Find me in app/views/shops/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+
+
+<div class="row"> 
+    <% @products.each do |product|%>
+      <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src ="https://mradio.fr/media/news/thumb/870x489_5c77973304410-le-chat-potte-06.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href=""><%= product.title%></a>
+                </h4>
+                <%= link_to "En savoir plus", product_path(product.id), class: "btn btn-dark mr:10px" %>
+                <h5><%= product.price%>$</h5>
+                <%= form_for @order_item, remote: true  do |f|%>
+                  <%= f.hidden_field :product_id, :value => product.id %>
+                  <%= f.number_field :quantity, :value => 1, :min =>  1%>
+                  <%= f.submit "Add to Card "%>
+                  <% end %>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+    <% end %>
+</div>
+
+
+
+<br>
+<div id="card">
+  <%= render 'cards/card'%>
+</div>
