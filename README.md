@@ -35,4 +35,4 @@ Just run the following command in your CLI at the root of your project:
   - Browse and enjoy 🔥 !
 
 
-(Link online store =>)[https://kittenstorebyludee.herokuapp.com/]
+[Link online store =>](https://kittenstorebyludee.herokuapp.com/)
